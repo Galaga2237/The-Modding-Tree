@@ -25,9 +25,18 @@ addLayer("p", {
         {key: "s", description: "S: Reset for Score Generators", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
-    upgrades: {        11: {
+    upgrades: {        11: {    title: "Begin.",
+    description: "Score Generators generate points.",
+    cost: new Decimal(1)
 
     },
-
+    12: {    title: "Polished Generators",
+    description: "Score Generators generate twice as fast.",
+    cost: new Decimal(2),
+    effect() {
+        return player[this.layer].points.add(1).pow(0.5)
+    },
+    effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+    },
     },
 })

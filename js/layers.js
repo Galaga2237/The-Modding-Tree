@@ -24,5 +24,8 @@ addLayer("p", {
     hotkeys: [
         {key: "s", description: "S: Reset for Score Generators", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    11: {
+
+    },
 })
